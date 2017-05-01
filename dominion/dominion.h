@@ -136,5 +136,25 @@ int playVillage(struct gameState *state, int handPos);
 int playFeast(struct gameState *state, int choice1);
 int playCouncil_Room(struct gameState *state, int handPos);
 
+//Ernie's new functions
+//1
+void cardEffectAdventurer(struct gameState *state, int currentPlayer, int cardDrawn, int *temphand, int z, int drawntreasure);
+
+//2
+void cardEffectCouncil_room(struct gameState *state, int currentPlayer, int handPos);
+
+//3
+void cardEffectFeast(struct gameState *state, int currentPlayer, int choice1);
+
+//4
+int cardEffectMine(struct gameState *state, int currentPlayer, int handPos, int choice1, int choice2);
+
+//5
+void cardEffectSmithy(struct gameState *state, int currentPlayer, int handPos, int choice1);
+
+//6
+void cardEffectRemodel(struct gameState *state, int currentPlayer, int handPos, int choice1, int choice2);
+//End Ernie's new functions
+
 
 #endif
