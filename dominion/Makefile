@@ -87,6 +87,35 @@ cardtest4: cardtest4.c dominion.o rngs.o
 	gcc -o cardtest4 -g  cardtest4.c dominion.o rngs.o $(CFLAGS)
 
 
+#random tests for assignment 4
+all_as4: randomtestcard1 randomtestcard2 randomtestadventurer
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1.out -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+randomtestcard2: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2.out -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer.out -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
+
+
+
+run_as4: randomtestcard1 randomtestcard2 randomtestadventurer
+	./randomtestcard1.out &> randomtestcard1_result.out
+	gcov dominion.c >> randomtestcard1_result.out
+	cat dominion.c.gcov >> randomtestcard1_result.out
+	./randomtestcard2.out &> randomtestcard2_result.out
+	gcov dominion.c >> randomtestcard2_result.out
+	cat dominion.c.gcov >> randomtestcard2_result.out
+	./randomtestadventurer.out &> randomtestadventurer_result.out
+	gcov dominion.c >> randomtestadventurer_result.out
+	cat dominion.c.gcov >> randomtestadventurer_result.out
+
+
+
+#end random tests for assignment 4
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
